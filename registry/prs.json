@@ -1,10 +1,315 @@
 {
   "schemaVersion": 1,
   "repository": "neophilism/Send_FOIA_Log_Requests",
-  "roadmapVersion": 1,
-  "planVerified": false,
-  "plannedPrCount": 0,
-  "observedAt": "2026-10-11T17:39:01.375Z",
-  "units": [],
+  "roadmapVersion": 2,
+  "planVerified": true,
+  "plannedPrCount": 14,
+  "observedAt": "2026-10-11T20:39:09.617Z",
+  "planProvenance": {
+    "baselineDate": "2026-10-11",
+    "authority": "Current owner instruction to complete plans and registry integration; Engine-Room issue 71 recovered scope; repository evidence distinguished in plan",
+    "planPath": "docs/DEVELOPMENT_PLAN.md",
+    "handoffPath": "docs/HANDOFF_STATUS.md",
+    "enumeration": "newly reconstructed completion work packages",
+    "historicalPlanVerified": false,
+    "handoffCertified": false,
+    "planVerifiedMeaning": "Current enumerated plan and registry consistency only; not transcript fidelity, implementation acceptance, live operation or approval of historical claims",
+    "priorEvidenceMeaning": "Historical PRs are preserved as related evidence; they are not completion mappings for newly scoped remediation acceptance",
+    "upstreamPlan": {
+      "repository": "neophilism/FOIA_Aggregator",
+      "commit": "62fe82950963dcc0dde2003f094047d65bf79a9d",
+      "path": "docs/DEVELOPMENT_PLAN.md",
+      "requiredEvidence": "FC-13/FC-14 actual versioned corpus export and coverage review; completion not verified"
+    }
+  },
+  "units": [
+    {
+      "id": "SFL-01",
+      "title": "Offline application foundation and configuration",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-10"
+      ],
+      "dependsOn": [],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-01"
+    },
+    {
+      "id": "SFL-02",
+      "title": "Official agency/component and contact discovery",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-01",
+        "SR-05",
+        "SR-08"
+      ],
+      "dependsOn": [
+        "SFL-01"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-02"
+    },
+    {
+      "id": "SFL-03",
+      "title": "Annual period selection and public-log gap analysis",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-01",
+        "SR-02",
+        "SR-09"
+      ],
+      "dependsOn": [
+        "SFL-02"
+      ],
+      "externalPrerequisites": [
+        "upstream export fixture contract"
+      ],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-03"
+    },
+    {
+      "id": "SFL-04",
+      "title": "Versioned request templates and deterministic generation",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-02"
+      ],
+      "dependsOn": [
+        "SFL-03"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-04"
+    },
+    {
+      "id": "SFL-05",
+      "title": "Durable request ledger and semantic deduplication",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-05",
+        "SR-07"
+      ],
+      "dependsOn": [
+        "SFL-04"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-05"
+    },
+    {
+      "id": "SFL-06",
+      "title": "Strict small dry-run and review packet",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-03"
+      ],
+      "dependsOn": [
+        "SFL-05"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-06"
+    },
+    {
+      "id": "SFL-07",
+      "title": "Exact-batch authorization and transactional outbox",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-04",
+        "SR-05",
+        "SR-07",
+        "SR-08"
+      ],
+      "dependsOn": [
+        "SFL-06"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-07"
+    },
+    {
+      "id": "SFL-08",
+      "title": "Controlled submission adapters and rate limits",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-04",
+        "SR-08"
+      ],
+      "dependsOn": [
+        "SFL-02",
+        "SFL-07"
+      ],
+      "externalPrerequisites": [
+        "EXT-DISPATCH for live transport"
+      ],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-08"
+    },
+    {
+      "id": "SFL-09",
+      "title": "Submission receipts, acknowledgments and uncertain outcomes",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-04",
+        "SR-05",
+        "SR-06"
+      ],
+      "dependsOn": [
+        "SFL-08"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-09"
+    },
+    {
+      "id": "SFL-10",
+      "title": "Response intake and fulfillment accounting",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-06",
+        "SR-08"
+      ],
+      "dependsOn": [
+        "SFL-09"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-10"
+    },
+    {
+      "id": "SFL-11",
+      "title": "Restart and yearly continuation",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-07"
+      ],
+      "dependsOn": [
+        "SFL-05",
+        "SFL-07",
+        "SFL-10"
+      ],
+      "externalPrerequisites": [],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-11"
+    },
+    {
+      "id": "SFL-12",
+      "title": "Aggregator interchange and completion reporting",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-06",
+        "SR-09"
+      ],
+      "dependsOn": [
+        "SFL-03",
+        "SFL-10",
+        "SFL-11"
+      ],
+      "externalPrerequisites": [
+        "EXT-CORPUS for large-campaign readiness"
+      ],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-12"
+    },
+    {
+      "id": "SFL-13",
+      "title": "Secure durable operation, monitoring and recovery",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-07",
+        "SR-08"
+      ],
+      "dependsOn": [
+        "SFL-07",
+        "SFL-09",
+        "SFL-11",
+        "SFL-12"
+      ],
+      "externalPrerequisites": [
+        "EXT-RUNTIME if hosted"
+      ],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-13"
+    },
+    {
+      "id": "SFL-14",
+      "title": "Authorized bounded pilot and independent-account acceptance",
+      "origin": "addition",
+      "prs": [],
+      "scopeBasis": "2026-10-11 engineering reconstruction of documented inherited scope and completion gaps; not original approved milestone titles",
+      "requirementIds": [
+        "SR-03",
+        "SR-04",
+        "SR-06",
+        "SR-09",
+        "SR-10"
+      ],
+      "dependsOn": [
+        "SFL-01",
+        "SFL-02",
+        "SFL-03",
+        "SFL-04",
+        "SFL-05",
+        "SFL-06",
+        "SFL-07",
+        "SFL-08",
+        "SFL-09",
+        "SFL-10",
+        "SFL-11",
+        "SFL-12",
+        "SFL-13"
+      ],
+      "externalPrerequisites": [
+        "EXT-CORPUS",
+        "EXT-DISPATCH",
+        "EXT-RUNTIME if hosted",
+        "EXT-RESPONSE for fulfillment claims"
+      ],
+      "priorEvidencePrs": [],
+      "planPath": "docs/DEVELOPMENT_PLAN.md",
+      "planSection": "SFL-14"
+    }
+  ],
   "pullRequests": []
 }

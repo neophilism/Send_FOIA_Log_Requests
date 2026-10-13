@@ -1,0 +1,22 @@
+version: 2.1
+
+# This repository currently contains planning and scripts only.
+# Do not equate this job with automated FOIA sending or end-to-end acceptance.
+jobs:
+  source-and-plan:
+    docker:
+      - image: cimg/python:3.12
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Validate task roadmap and implementation status
+          command: python3 scripts/validate_plan.py
+      - run:
+          name: Validate machine-readable PR and roadmap registries
+          command: |
+            python3 -c 'import json; [json.load(open(p)) for p in ["registry/prs.json", "registry/roadmap.json"]]'
+workflows:
+  planning-gate:
+    jobs:
+      - source-and-plan

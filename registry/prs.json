@@ -1,6 +1,7 @@
 {
-  "schemaVersion": 1,
   "repository": "neophilism/Send_FOIA_Log_Requests",
+  "developmentPlan": "docs/DEVELOPMENT_PLAN.md",
+  "schemaVersion": 1,
   "roadmapVersion": 2,
   "planVerified": true,
   "plannedPrCount": 14,
@@ -36,7 +37,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-01"
+      "planSection": "SFL-01",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-02",
@@ -55,7 +58,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-02"
+      "planSection": "SFL-02",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-03",
@@ -76,7 +81,9 @@
       ],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-03"
+      "planSection": "SFL-03",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-04",
@@ -93,7 +100,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-04"
+      "planSection": "SFL-04",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-05",
@@ -111,7 +120,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-05"
+      "planSection": "SFL-05",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-06",
@@ -128,7 +139,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-06"
+      "planSection": "SFL-06",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-07",
@@ -148,7 +161,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-07"
+      "planSection": "SFL-07",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-08",
@@ -169,7 +184,9 @@
       ],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-08"
+      "planSection": "SFL-08",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-09",
@@ -188,7 +205,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-09"
+      "planSection": "SFL-09",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-10",
@@ -206,7 +225,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-10"
+      "planSection": "SFL-10",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-11",
@@ -225,7 +246,9 @@
       "externalPrerequisites": [],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-11"
+      "planSection": "SFL-11",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-12",
@@ -247,7 +270,9 @@
       ],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-12"
+      "planSection": "SFL-12",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-13",
@@ -270,7 +295,9 @@
       ],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-13"
+      "planSection": "SFL-13",
+      "contributingPrs": [],
+      "externalDependencies": []
     },
     {
       "id": "SFL-14",
@@ -308,7 +335,9 @@
       ],
       "priorEvidencePrs": [],
       "planPath": "docs/DEVELOPMENT_PLAN.md",
-      "planSection": "SFL-14"
+      "planSection": "SFL-14",
+      "contributingPrs": [],
+      "externalDependencies": []
     }
   ],
   "pullRequests": []

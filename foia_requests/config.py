@@ -33,9 +33,12 @@ class Config:
     def from_file(cls, path):
         try:
             location = Path(path)
-            if location.stat().st_size > 16384:
+            # Bound the actual bytes parsed, even if the file changes after a stat.
+            with location.open("rb") as stream:
+                raw = stream.read(16385)
+            if len(raw) > 16384:
                 raise ConfigurationError("config file exceeds 16 KiB")
-            data = json.loads(location.read_text(encoding="utf8"),
+            data = json.loads(raw.decode("utf8"),
                               object_pairs_hook=reject_duplicate_keys,
                               parse_constant=lambda value: (_ for _ in ()).throw(ConfigurationError("non-finite number")))
         except (OSError, UnicodeError, ValueError) as exc:

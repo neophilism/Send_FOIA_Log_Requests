@@ -1,10 +1,18 @@
-"""Strict configuration; live transport cannot be enabled in this milestone."""
+"""Strict offline configuration; no live agency dispatch in this milestone."""
 from dataclasses import dataclass, fields
 from pathlib import Path
 import json
 
 class ConfigurationError(ValueError):
     pass
+
+def reject_duplicate_keys(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ConfigurationError("duplicate configuration key")
+        result[key] = value
+    return result
 
 @dataclass(frozen=True)
 class Config:
@@ -24,8 +32,13 @@ class Config:
     @classmethod
     def from_file(cls, path):
         try:
-            data = json.loads(Path(path).read_text(encoding="utf8"))
-        except (OSError, ValueError) as exc:
+            location = Path(path)
+            if location.stat().st_size > 16384:
+                raise ConfigurationError("config file exceeds 16 KiB")
+            data = json.loads(location.read_text(encoding="utf8"),
+                              object_pairs_hook=reject_duplicate_keys,
+                              parse_constant=lambda value: (_ for _ in ()).throw(ConfigurationError("non-finite number")))
+        except (OSError, UnicodeError, ValueError) as exc:
             raise ConfigurationError(f"invalid config: {exc}") from exc
         if not isinstance(data, dict) or set(data) - {f.name for f in fields(cls)}:
             raise ConfigurationError("unknown fields or non-object config")

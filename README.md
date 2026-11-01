@@ -11,6 +11,9 @@ Validate the plan/registry and offline product suite using Python 3.11+ from thi
 ```bash
 python scripts/validate_plan.py
 python scripts/check_foundation.py
+
+# CI also verifies the pinned setuptools wheel and installed CLI; see
+# .github/workflows/offline-foundation.yml
 ```
 
 The installed CLI is `foia-requests`. It exposes the planned command families but reports them as not implemented; `dispatch` fails closed. `registry/roadmap.json` redirects to `registry/prs.json`; maintain work IDs, dependencies and real PR mappings there rather than inventing totals from observed PR numbers.

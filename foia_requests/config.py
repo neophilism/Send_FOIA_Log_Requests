@@ -2,6 +2,8 @@
 from dataclasses import dataclass, fields
 from pathlib import Path
 import json
+import os
+import stat
 
 class ConfigurationError(ValueError):
     pass
@@ -33,15 +35,23 @@ class Config:
     def from_file(cls, path):
         try:
             location = Path(path)
-            # Bound the actual bytes parsed, even if the file changes after a stat.
-            with location.open("rb") as stream:
-                raw = stream.read(16385)
+            # Do not block on a FIFO/device or follow a configuration symlink.
+            descriptor = os.open(location, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+                                 | getattr(os, "O_NONBLOCK", 0))
+            try:
+                if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+                    raise ConfigurationError("config must be a regular file")
+                # Bound bytes actually parsed, even if the file grows after open.
+                with os.fdopen(descriptor, "rb", closefd=False) as stream:
+                    raw = stream.read(16385)
+            finally:
+                os.close(descriptor)
             if len(raw) > 16384:
                 raise ConfigurationError("config file exceeds 16 KiB")
             data = json.loads(raw.decode("utf8"),
                               object_pairs_hook=reject_duplicate_keys,
                               parse_constant=lambda value: (_ for _ in ()).throw(ConfigurationError("non-finite number")))
-        except (OSError, UnicodeError, ValueError) as exc:
+        except (OSError, UnicodeError, ValueError, RecursionError) as exc:
             raise ConfigurationError(f"invalid config: {exc}") from exc
         if not isinstance(data, dict) or set(data) - {f.name for f in fields(cls)}:
             raise ConfigurationError("unknown fields or non-object config")

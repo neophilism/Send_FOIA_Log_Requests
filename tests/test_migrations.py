@@ -19,7 +19,8 @@ class MigrationTests(unittest.TestCase):
             path = Path(folder) / "ledger.sqlite"
             with sqlite3.connect(path) as conn:
                 conn.execute("PRAGMA user_version=99")
-            with self.assertRaises(RuntimeError):
+            path.chmod(0o600)
+            with self.assertRaisesRegex(RuntimeError, "unsupported future schema"):
                 initialize(path)
 
     def test_inconsistent_existing_schema_rejected(self):
@@ -27,6 +28,7 @@ class MigrationTests(unittest.TestCase):
             path = Path(folder) / "ledger.sqlite"
             with sqlite3.connect(path) as conn:
                 conn.execute("PRAGMA user_version=1")
+            path.chmod(0o600)
             with self.assertRaises(sqlite3.OperationalError):
                 initialize(path)
             with sqlite3.connect(path) as conn:

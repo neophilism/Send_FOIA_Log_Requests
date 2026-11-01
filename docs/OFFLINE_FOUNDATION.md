@@ -4,7 +4,7 @@ Runtime requires Python 3.11+ and the pinned setuptools 84.0.0 build backend. Th
 
 All command families except help are placeholders, not completed services. Dispatch always fails closed and no network credentials, messages, or fees are configured. The strict JSON config rejects unknown fields and transport enablement. The SQLite migration creates only schema version tracking; the durable request ledger is a later unit. No live operation is authorized by this code.
 
-Existing GitHub Actions workflows validate policy and registry files, not the Python product suite. Run `python scripts/check_foundation.py` in an isolated Python environment until a product CI job is available. A passing policy workflow does not certify runtime behavior.
+The `offline-foundation` GitHub Actions job now runs the 20 offline Python product tests, validates the plan, builds a wheel with pinned setuptools 84.0.0, installs it into a fresh virtual environment and verifies normal CLI startup and fail-closed dispatch. See `.github/workflows/offline-foundation.yml`. Product acceptance requires this job **and** repository source/registry checks to pass on the exact PR head. This is not a live campaign or dispatch certification.
 
 ## Private local files
 
@@ -27,7 +27,4 @@ alone. Future/inconsistent schemas are rejected without being rewritten.
 Validation for this change: 20 product tests passed on Python 3.12.14, including
 four independent initializer processes, FIFO rejection with a process deadline,
 symlink/hard-link safety, private modes and rollback on incompatible schema.
-The plan validator passed. The pinned setuptools 84.0.0 isolated package build
-was not exercised in this runtime (installed backend: 84.1.0); no exact-backend
-reproducibility claim is made. Existing protected product CI workflow owner action
-remains unresolved; no protected-path workaround was attempted.
+The plan validator passed. The pinned setuptools 84.0.0 package build and fresh-env install are now exercised by the `offline-foundation` CI job. This is limited to the exact runtime, environment and head reported by GitHub Actions; a local development test alone is not a release gate.
